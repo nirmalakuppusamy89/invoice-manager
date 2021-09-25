@@ -1,39 +1,36 @@
 package com.gic.invoice_manager.steps;
 
-import com.gic.invoice_manager.utils.CommonFunctions;
-import com.gic.invoice_manager.utils.InvoiceConstants;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import com.gic.invoice_manager.pageObjects.LoginPage;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
-public class Login extends CommonFunctions {
+public class Login {
 
-    @Given("^I'm On Invoice Manager Login Page$")
-    public void i_m_On_Invoice_Manager_Login_Page()  {
-        driver.get(InvoiceConstants.APPLICATION_URL);
+    private final LoginPage loginPage;
+
+    public Login() {
+        this.loginPage = new LoginPage();
     }
 
-    @Given("^I enter Username as \"(.*?)\"$")
-    public void i_enter_Username_as(String userName)  {
-        driver.findElement(By.id("inputEmail")).sendKeys(userName);
+    @Given("^I'm on the invoice manager login page$")
+    public void i_m_on_invoice_manager_login_page() {
+        loginPage.goToLoginPage();
     }
 
-    @Given("^I enter Password as \"(.*?)\"$")
-    public void i_enter_Password_as(String password)  {
-        driver.findElement(By.id("inputPassword")).sendKeys(password);
+    @Given("^I enter invoice manager admin username and password$")
+    public void i_enter_Username_as() {
+        loginPage.enterUsernamePassword();
     }
 
-    @When("^I click on Login$")
-    public void i_click_on_Login()  {
-        driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
+    @When("^I click login button$")
+    public void i_click_on_Login() {
+        loginPage.clickLoginButton();
+
     }
 
-    @Then("^I redirected to Invioce Manager Home Page$")
-    public void i_redirected_to_Invioce_Manager_Home_Page()  {
-       WebElement loginSuccessfulElement = driver.findElement(By.xpath("//p[contains(text(),'Logged In Successfully')]"));
-        Assert.assertTrue(loginSuccessfulElement.isDisplayed());
+    @Then("^I should redirected to invoice manager home page$")
+    public void i_redirected_to_invoice_manager_home_page() {
+        loginPage.verifyLoggedInMessage();
     }
 }
