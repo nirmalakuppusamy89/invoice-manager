@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/com/gic/invoice_manager/features",
+        features = "src/test/resources/features",
         glue = {""},
         tags = "@invoice-manager",
         dryRun = false)
