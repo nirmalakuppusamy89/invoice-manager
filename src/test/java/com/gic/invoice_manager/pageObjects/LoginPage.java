@@ -31,7 +31,7 @@ public class LoginPage extends BasePage {
 
     public void goToLoginPage() {
         LOGGER.info("Opening login page url");
-        driver.get(InvoiceConstants.APPLICATION_URL);
+        driver.get(InvoiceConstants.APPLICATION_URL + InvoiceConstants.LOGIN_ENDPOINT);
     }
 
     public void enterUsernamePassword() {

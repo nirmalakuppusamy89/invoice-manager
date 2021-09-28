@@ -30,21 +30,26 @@ public class ManageInvoiceSteps {
 
     @When("I navigate to add sales page")
     public void i_navigate_to_add_sales_page() {
+        addInvoicePage.redirectToHomePage();
+        addInvoicePage.goToAddInvoicePage();
+        addInvoicePage.verifyUserInAddSalesPage();
 
     }
 
     @When("I enter all the required fields in add sales page")
     public void i_enter_all_the_required_fields_in_add_sales_page() {
-
+        addInvoicePage.fillAddSaleFields();
     }
 
     @When("I click Add Invoice Button")
     public void i_click_add_invoice_button() {
+        addInvoicePage.clickAddInvoiceButton();
 
     }
 
     @Then("verify invoice successfully added message in list invoices page")
     public void verify_invoice_successfully_added_message_in_list_invoices_page() {
+        addInvoicePage.verifyCreatedInvoice();
 
     }
 

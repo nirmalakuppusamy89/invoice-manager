@@ -13,19 +13,3 @@
       And I enter all the required fields in add sales page
       And I click Add Invoice Button
       Then verify invoice successfully added message in list invoices page
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
