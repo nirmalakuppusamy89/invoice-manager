@@ -25,6 +25,9 @@ public class ListInvoicePage extends BasePage {
     @FindBy(xpath = "/html/body/div[3]/div[2]/h2")
     private WebElement invoicesPage;
 
+    @FindBy(xpath = "//*[@id=\"sales_index\"]")
+    private WebElement listInvoiceLink;
+
     @FindBy(id="status_chosen")
     private WebElement statusDropDown;
 
@@ -42,6 +45,13 @@ public class ListInvoicePage extends BasePage {
 
     @FindBy(xpath = "/html/body/div[3]/div[2]")
     private WebElement accessDeniedAlert;
+
+    @FindBy(xpath = "/html/body/div[2]/div/nav/ul/li[2]/a")
+    private WebElement salesMenu;
+
+    @FindBy(xpath = "/html/body/div[3]/div[2]/h2")
+    private WebElement listInvoiceHeader;
+
 
 
     public List<String> getActionIds() {
@@ -106,4 +116,23 @@ public class ListInvoicePage extends BasePage {
         Assert.assertTrue(accessDeniedAlert.isDisplayed());
 
     }
+
+
+    public void goToListInvoicePage(){
+        LOGGER.info("User clicks sales menu");
+        salesMenu.click();
+        LOGGER.info("User clicks list invoice link");
+        wait.forceWaitForTime(2);
+        listInvoiceLink.click();
+    }
+
+    public void verifyUserInListInvoicePage(){
+
+        wait.forceWaitForTime(3);
+        LOGGER.info("verify user in list invoice page");
+        String listInvoicePageHeader = listInvoiceHeader.getText();
+        Assert.assertTrue(listInvoicePageHeader.contains("Invoices"));
+
+    }
+
 }
