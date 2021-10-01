@@ -6,11 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AddListCustomerPage extends BasePage {
+public class AddCustomerPage extends BasePage {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AddInvoicePage.class);
 
-    public AddListCustomerPage() {
+    public AddCustomerPage() {
         PageFactory.initElements(driver, this);
     }
 

@@ -91,24 +91,4 @@ public class ManageInvoiceSteps {
         listInvoicePage.verifyDeletedInvoice();
     }
 
-
-
-    @When("I navigate to add customer page")
-    public void iNavigateToAddCustomerPage() {
-        
-    }
-
-    @And("I enter all the required fields in add customer page")
-    public void iEnterAllTheRequiredFieldsInAddCustomerPage() {
-        
-    }
-
-    @And("I click Add customer Button")
-    public void iClickAddCustomerButton() {
-        
-    }
-
-    @Then("verify customer list successfully added message")
-    public void verifyCustomerListSuccessfullyAddedMessage() {
-    }
 }
