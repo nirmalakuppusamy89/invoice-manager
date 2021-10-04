@@ -1,3 +1,4 @@
+@invoice-manager
 Feature: Export all the available Invoice
   As a system admin of Invoice Manager
   I should be able to export all existing Invoice in the system

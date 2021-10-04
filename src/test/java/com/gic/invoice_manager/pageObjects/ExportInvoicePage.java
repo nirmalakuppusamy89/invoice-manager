@@ -38,11 +38,14 @@ public class ExportInvoicePage extends BasePage {
 
     public void exportInvoiceDifferentFormat() {
 
+        LOGGER.info("User clicks copy option in list invoice page ");
+        copyOption.click();
+        LOGGER.info("User excel option in list invoice page");
         excelOption.click();
-        verifyDownloadedFiles();
+        LOGGER.info("User csv option in csv invoice page");
         csvOption.click();
+        LOGGER.info("User pdf option in pdf invoice page ");
         pdfOption.click();
-        columnsDropDown.click();
 
     }
 
