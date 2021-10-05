@@ -1,9 +1,8 @@
 package com.gic.invoice_manager.steps;
 
-import com.gic.invoice_manager.pageObjects.AddCustomerPage;
 import com.gic.invoice_manager.pageObjects.AddInvoicePage;
 import com.gic.invoice_manager.pageObjects.ColumnsFilterPage;
-import com.gic.invoice_manager.pageObjects.LoginPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 
 public class ColumnsFilterSteps {
@@ -14,18 +13,20 @@ public class ColumnsFilterSteps {
         this.columnsFilterPage = new ColumnsFilterPage();
     }
 
-    @When("I navigates to list customer page")
-    public void iNavigatesToListCustomerPage() {
+    @When("I navigates to list products page")
+    public void iNavigatesToListProductsPage() {
         AddInvoicePage addInvoicePage = new AddInvoicePage();
         addInvoicePage.redirectToHomePage();
+        columnsFilterPage.goToListProductsPage();
 
 
     }
 
+    @And("I select a column option and verify in the table")
+    public void iSelectAColumnOptionAndVerifyInTheTable() {
+        columnsFilterPage.clicksColumns();
+        columnsFilterPage.clickColumnOptionAndVerify();
 
 
-
-
-
-
+    }
 }

@@ -1,5 +1,7 @@
 package com.gic.invoice_manager.pageObjects;
 
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,32 +54,40 @@ public class ColumnsFilterPage extends BasePage {
 
     public void goToListProductsPage(){
 
-        LOGGER.info("User clicks customer drop");
+        LOGGER.info("User clicks products dropdown");
         productsMenuOption.click();
-        LOGGER.info("User clicks add customer option");
+        LOGGER.info("User clicks add list products option");
         wait.forceWaitForTime(2);
         listProductSubMenu.click();
 
     }
 
     public void clicksColumns(){
-
+        LOGGER.info("User clicks columns dropdown");
         columnsHeaderMenu.click();
 
     }
-    public void selectsUnSelectsColumnsOptions(){
 
-
+    public void clickColumnOptionAndVerify() {
+        LOGGER.info("User clicks ID option from dropdown");
         idColumnsOption.click();
+        wait.forceWaitForTime(3);
+        verifyTheColumnsOptions("ID", "1");
+        verifyTheColumnsOptions("Name", "2");
+        verifyTheColumnsOptions("Details", "3");
+        verifyTheColumnsOptions("Price", "4");
+        verifyTheColumnsOptions("Tax Rate", "5");
+        verifyTheColumnsOptions("Tax Method", "6");
 
 
     }
 
-    public void verifyTheColumnsOptions(){
-
+    public void verifyTheColumnsOptions(String expectedColumnName, String columnIndex){
+        String columnNameText = driver.findElement(
+                By.xpath("//*[@id=\"fileData\"]/thead/tr/th[" + columnIndex + "]")).getText();
+        LOGGER.info("Asserting column " + expectedColumnName);
+        Assert.assertEquals(expectedColumnName, columnNameText);
 
     }
-
 
 }
-

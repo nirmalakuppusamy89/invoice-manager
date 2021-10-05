@@ -38,5 +38,10 @@ public class ExportCustomerPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"fileData_wrapper\"]/div[1]/div/div/a[5]/span")
     private WebElement columnsOption;
 
+    public void goToListCustomerPage(){
+
+
+    }
+
 
 }
