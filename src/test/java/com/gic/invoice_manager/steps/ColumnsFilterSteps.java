@@ -3,6 +3,7 @@ package com.gic.invoice_manager.steps;
 import com.gic.invoice_manager.pageObjects.AddInvoicePage;
 import com.gic.invoice_manager.pageObjects.ColumnsFilterPage;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ColumnsFilterSteps {
@@ -27,6 +28,36 @@ public class ColumnsFilterSteps {
         columnsFilterPage.clicksColumns();
         columnsFilterPage.clickColumnOptionAndVerify();
 
+    }
+
+    @Then("I select {string} column option and verify in the table")
+    public void iSelectNameColumnOptionAndVerifyInTheTable(String columnName) {
+        columnsFilterPage.clicksColumns();
+
+        switch (columnName) {
+            case "Name":
+                columnsFilterPage.clickNameOptionAndVerify();
+                break;
+            case "Details":
+                columnsFilterPage.clickDetailsOptionAndVerify();
+                break;
+            case "Price":
+                columnsFilterPage.clickPriceOptionAndVerify();
+                break;
+            case "Tax Rate":
+                 columnsFilterPage.clickTaxRateOptionAndVerify();
+                 break;
+            case "Tax Method":
+                  columnsFilterPage.clickTaxMethodOptionAndVerify();
+                  break;
+            case "Actions":
+                  columnsFilterPage.clickActionsOptionAndVerify();
+                  break;
+
+
+        }
+
 
     }
+
 }

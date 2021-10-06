@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {""},
-        tags = "@columns-filter")
+        tags = "@invoice-manager")
 public class InvoiceRunner {
 }

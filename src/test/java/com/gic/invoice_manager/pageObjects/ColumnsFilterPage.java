@@ -82,12 +82,67 @@ public class ColumnsFilterPage extends BasePage {
 
     }
 
+    public void clickNameOptionAndVerify(){
+        LOGGER.info("user clicks Name option from dropdown");
+        nameColumnsOption.click();
+        wait.forceWaitForTime(2);
+        nameColumnsOption.click();
+        verifyTheColumnsOptions("Name", "1");
+    }
+
+    public void clickDetailsOptionAndVerify(){
+        LOGGER.info("user clicks details option from dropdown");
+        detailsColumnsOption.click();
+        wait.forceWaitForTime(2);
+        detailsColumnsOption.click();
+        verifyTheColumnsOptions("Details", "2");
+
+    }
+    public void clickPriceOptionAndVerify(){
+        LOGGER.info("user clicks price option from dropdown");
+        priceColumnsOption.click();
+        wait.forceWaitForTime(2);
+        priceColumnsOption.click();
+        verifyTheColumnsOptions("Price", "3");
+    }
+    public void clickTaxRateOptionAndVerify(){
+
+        LOGGER.info("user clicks tax rate from dropdown");
+        taxRateColumnsOption.click();
+        wait.forceWaitForTime(2);
+        taxRateColumnsOption.click();
+        verifyTheColumnsOptions("Tax Rate", "4");
+    }
+
+    public void clickTaxMethodOptionAndVerify(){
+        LOGGER.info("user clicks tax method from dropdown");
+        taxMethodColumnsOption.click();
+        wait.forceWaitForTime(2);
+        taxMethodColumnsOption.click();
+        verifyTheColumnsOptions("Tax Method", "5");
+
+    }
+
+    public void clickActionsOptionAndVerify(){
+        actionsColumnsOption.click();
+        wait.forceWaitForTime(2);
+        actionsColumnsOption.click();
+        verifyTheColumnsOptions("Actions", "6");
+        wait.forceWaitForTime(3);
+
+    }
+
+
     public void verifyTheColumnsOptions(String expectedColumnName, String columnIndex){
+        wait.forceWaitForTime(2);
         String columnNameText = driver.findElement(
                 By.xpath("//*[@id=\"fileData\"]/thead/tr/th[" + columnIndex + "]")).getText();
         LOGGER.info("Asserting column " + expectedColumnName);
         Assert.assertEquals(expectedColumnName, columnNameText);
 
     }
+
+
+
 
 }
